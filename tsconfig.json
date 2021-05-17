@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "ES2015", // ES버전
+    "sourceMap": true
+  },
+  "include": ["index.ts"], // 컴파일과정 | 배열로 적용
+  "exclude": ["node_modules"]
+}
+
+// 항상 프로젝트 사용하는 셋업
