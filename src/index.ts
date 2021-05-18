@@ -1,44 +1,48 @@
-class Human {
-  public name: string;
-  private age: number;
-  public gender: string;
-
-  constructor(name: string, age: number, gender: string) {
-    this.name = name;
-    this.age = age;
-    this.gender = gender;
+class Block {
+  public index: number;
+  public hash: string;
+  public previousHash: string;
+  public data: string;
+  public timestamp: number;
+  constructor(
+    index: number,
+    hash: string,
+    previouseHash: string,
+    data: string,
+    timestamp: number
+  ) {
+    this.index = index;
+    this.hash = hash;
+    this.previousHash = previouseHash;
+    this.data = data;
+    this.timestamp = timestamp;
   }
 }
 
-const lynn = new Human("Lynn", 19, "female");
+const genesisBlock: Block = new Block(
+  0,
+  "1123sadf12q3123fsd",
+  "fjdsklasdfo1235234jkfoi123i",
+  "data:asdfasdf123897",
+  187
+);
 
-// interface Human {
-//   name: string;
-//   age: number;
-//   gender: string;
-// }
+let blockchain: [Block] = [genesisBlock];
 
-const person = {
-  name: "kureha",
-  gender: "male",
-  age: 22,
-};
+console.log(blockchain);
 
-const TsFunc = (name: string, age: number, gender?: string): void => {
-  console.log(`Hello, ${name}, you are ${age}, you are a ${gender}`);
-};
+/**
+ * [
+  Block {
+    index: 0,
+    hash: '1123sadf12q3123fsd',
+    previousHash: 'fjdsklasdfo1235234jkfoi123i',
+    data: 'data:asdfasdf123897',
+    timestamp: 187
+  }
+]
+ */
 
-const TsFuncRe = (person: Human): string => {
-  return `Hello, ${person.name}, you are ${person.age}, you are a ${person.gender}`;
-};
-
-// TsFunc(name, age); // 타입스크립트 파라미터 부족하면 에러발생
-
-// TsFunc(name, age); // 이렇게만 사용하고 싶으면 gender? 붙이면 된다.
-
-TsFunc("YUN", 123);
-TsFunc("YUN", 123, "men");
-
-console.log(TsFuncRe(lynn));
+// blockchain.push("stuff") //Argument of type 'string' is not assignable to parameter of type 'Block'.
 
 export {}; // export 선언안하면 버그가 생긴다.
